@@ -1,0 +1,27 @@
+#!/bin/bash
+# <UDF name="access_key" label="temp-access_key" example="sadasdasdad" default="">
+# <UDF name="secret_key" label="temp-secret_key" example="sadasdasdad" default="">
+echo "[default]
+	access_key = $ACCESS_KEY 
+	secret_key = $SECRET_KEY" >> $HOME/.s3cfg
+apt update
+apt install python3-pip -y
+apt install apache2 -y
+service apache2 start
+systemctl enable apache2
+pip install s4cmd
+mkdir $HOME/micetro/
+cd $HOME/micetro
+s4cmd get --endpoint-url https://us-southeast-1.linodeobjects.com s3://auth-dns-workshop/m*.tgz $HOME/micetro/.	
+tar zxvf micetro-central*.tgz --directory $HOME/micetro
+tar zxvf micetro-controllers*.tgz --directory $HOME/micetro
+tar zxvf micetro-web*.tgz --directory $HOME/micetro
+rm $HOME/micetro/*.tgz
+
+cd $HOME/micetro/micetro-central*
+./install
+$HOME/micreto/micetro-web*
+./install --web-virtual-host-domain dcm.superprobie.ca
+service apache2 restart
+cd $HOME/micetro/micetro-control*
+./install --generic-dns-controller
