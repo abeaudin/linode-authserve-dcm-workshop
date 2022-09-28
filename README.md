@@ -64,20 +64,33 @@ We'll then create a Linode using the "Secure Your Server" Marketplace image. Thi
 Next step is to install git, and pull this repository to the Secure Shell Linode. The repository includes terraform and kubernetes configuration files that we'll need for subsequent steps.
 
 ### Install git via the SSH or LISH shell-
+```
 sudo apt-get install git
+```
 
 Pull down this repository to the Linode machine-
 
+```
 git init && git pull [https://github.com/abeaudin/linode-authserve-dcm-workshop](https://github.com/abeaudin/linode-authserve-dcm-workshop)
+```
 
 Install Terraform
 
 Next step is to install Terraform. Run the below commands from the Linode shell-
 
+```
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+```
+
+```
 wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+```
+```
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+```
+```
 sudo apt update && sudo apt-get install terraform
+```
 
 ### Provision workshop using Terraform
 [image](https://user-images.githubusercontent.com/7717493/192897377-f8e3ff55-9d8e-4da6-bb7b-4297a52444bc.png)
