@@ -117,3 +117,7 @@ terraform plan \
  terraform apply \
  -var-file="terraform.tfvars"
  ```
+ 
+ # TO DO
+ The above will deploy and set up the hidden masters plus DCM. 
+ Configuring those to add a domain in the hidden masters and the secondary relationship in EdgeDNS/Linode Domains is still todo.
