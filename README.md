@@ -50,8 +50,11 @@ The workshop scenario builds the following components and steps-
 
 ## Step By Step Instructions
 
+We first need to make sure that we have downloaded an approproriate authserve tarball, a licence plus the dcm tarballs and license.
+Next, we'll create an Object Storage Bucket and add the files to it.
 
-We'll first create a Linode using the "Secure Your Server" Marketplace image. This will give us a hardened, consistent environment to run our subsequent commands from.
+
+We'll then create a Linode using the "Secure Your Server" Marketplace image. This will give us a hardened, consistent environment to run our subsequent commands from.
 
 1. Login to Linode Cloud Manager, Select "Create Linode," and choose the "Secure Your Server" Marketplace image.
 2. Within the setup template for "Secure Your Server," select the Debian 11 image type.
@@ -65,7 +68,7 @@ sudo apt-get install git
 
 Pull down this repository to the Linode machine-
 
-git init && git pull https://github.com/ccie7599/chicago-workshop
+git init && git pull [https://github.com/ccie7599/chicago-workshop](https://github.com/abeaudin/linode-authserve-dcm-workshop)
 
 Install Terraform
 
@@ -76,3 +79,28 @@ wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt-get install terraform
 
+### Provision workshop using Terraform
+![tf](https://user-images.githubusercontent.com/19197357/184130473-91c36dfc-072b-43f7-882b-07407d7f2266.png)
+
+Next, we build out the Linode infrastructure, with the terraform files that are included in this repository, and pulled into the Linode Shell from the prior git command.
+
+1. From the Linode Cloud Manager, create an API token and copy it's value (NOTE- the Token should have full read-write access to all Linode components in order to work properly with terraform).
+
+2. From the Linode shell, set the TF_VAR_token env variable to the API token value. This will allow terraform to use the Linode API for infrastructure provisioning.
+```
+export TF_VAR_token=[api token value]
+```
+3. Initialize the Linode terraform provider-
+```
+terraform init 
+```
+4. Next, we'll use the supplied terraform files to provision the Linode infrastructure. First, run the "terraform plan" command to view the plan prior to deployment-
+```
+terraform plan \
+ -var-file="terraform.tfvars"
+ ```
+ 5. Run "terraform apply" to deploy the plan to Linode and build.
+ ```
+ terraform apply \
+ -var-file="terraform.tfvars"
+ ```
