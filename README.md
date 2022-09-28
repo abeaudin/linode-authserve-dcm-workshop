@@ -80,7 +80,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 sudo apt update && sudo apt-get install terraform
 
 ### Provision workshop using Terraform
-![tf](https://user-images.githubusercontent.com/19197357/184130473-91c36dfc-072b-43f7-882b-07407d7f2266.png)
+![tf]![image](https://user-images.githubusercontent.com/7717493/192897377-f8e3ff55-9d8e-4da6-bb7b-4297a52444bc.png)
 
 Next, we build out the Linode infrastructure, with the terraform files that are included in this repository, and pulled into the Linode Shell from the prior git command.
 
