@@ -93,7 +93,7 @@ sudo apt update && sudo apt-get install terraform
 ```
 
 ### Provision workshop using Terraform
-[image](https://user-images.githubusercontent.com/7717493/192897377-f8e3ff55-9d8e-4da6-bb7b-4297a52444bc.png)
+![image](https://user-images.githubusercontent.com/7717493/192897377-f8e3ff55-9d8e-4da6-bb7b-4297a52444bc.png)
 
 Next, we build out the Linode infrastructure, with the terraform files that are included in this repository, and pulled into the Linode Shell from the prior git command.
 
