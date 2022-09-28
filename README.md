@@ -31,7 +31,6 @@ This workshop provides examples of how to configure:
 ![image](https://user-images.githubusercontent.com/7717493/192870831-2f66fa1d-911a-455a-9ea4-47f07f20e9c8.png)
 
 
-## Step By Step Instructions
 ### Overview
 The scenario is written to approximate deployment of a resilient hidden multimaster Authoritative DNS service with secondary servers in Akamai's EdgeDNS and Linode Domains.
 
@@ -49,5 +48,6 @@ The workshop scenario builds the following components and steps-
 - Object Storage Keys permitting access from the Linodes to the binaries on the Object Storage Bucket
 - Domain and DNS Record
 
-
+## Step By Step Instructions
+todo
 
