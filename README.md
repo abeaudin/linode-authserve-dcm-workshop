@@ -68,7 +68,7 @@ sudo apt-get install git
 
 Pull down this repository to the Linode machine-
 
-git init && git pull [https://github.com/ccie7599/chicago-workshop](https://github.com/abeaudin/linode-authserve-dcm-workshop)
+git init && git pull [https://github.com/abeaudin/linode-authserve-dcm-workshop](https://github.com/abeaudin/linode-authserve-dcm-workshop)
 
 Install Terraform
 
