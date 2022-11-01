@@ -22,6 +22,8 @@ This workshop provides examples of how to configure:
 - Licenses for Authserve and DCM loaded into the Object Storage Bucket
 - Domain name (optional)
 - Self signed certs (optional if you want a nodebalancer with SSL Termination)
+- Stackscripts created with the files in this repo. Note the stackscript IDs and add them to your tf files where the stackscripts are referenced.
+
 
 ### Exercise Diagram
 ![image](https://user-images.githubusercontent.com/7717493/192870451-33937f5f-3edf-4326-951b-0cfe23a85fbc.png)
